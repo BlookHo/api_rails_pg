@@ -1,5 +1,5 @@
 class Company < ApplicationRecord
-  has_many :jobs#, dependent: :destroy
+  has_many :jobs #, dependent: :destroy
   accepts_nested_attributes_for :jobs, :reject_if => :all_blank, :allow_destroy => true
 
   validates_associated :jobs
