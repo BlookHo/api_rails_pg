@@ -3,7 +3,7 @@ class Api::V1::CompaniesController < ApplicationController
 
   def index
     @companies = Company.all
-    render json: { jobs: @companies }, except: [:id, :created_at, :updated_at]
+    render json: { companies: @companies }, except: [:id, :created_at, :updated_at]
   end
 
   def show
