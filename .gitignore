@@ -21,3 +21,5 @@
 
 .idea/*
 
+config/secrets.yml
+
