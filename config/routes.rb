@@ -11,5 +11,8 @@ Rails.application.routes.draw do
 
     end
   end
+
+  match "*path", to: "application#catch_404", via: :all
+
 end
 # match 'publish',         to: 'group_events#publish',         via: 'put'
