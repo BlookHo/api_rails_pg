@@ -1,5 +1,5 @@
 class Api::V1::CompaniesController < ApplicationController
-  before_action :set_company, only: [:show, :update, :destroy]
+  before_action :set_company, only: [:show, :update, :mark_destroy]
 
   def index
     @companies = Company.all
@@ -19,24 +19,29 @@ class Api::V1::CompaniesController < ApplicationController
     end
   end
 
-  def destroy
-    @company.destroy
-    render json: { deleted_company: @company,
-                   code: 200,
-                   status: :success,
-    }, except: [:created_at, :updated_at]
+  def mark_destroy
+    #id = params[:id]
+    logger.info "@id = #{params[:id]}, @company = #{@company}"
+    @company = Company.find(params[:id])
+    # @company.destroy
+    # render json: { deleted_company: @company,
+    #                code: 200,
+    #                status: :success,
+    # }, except: [:created_at, :updated_at]
 
-    # if @company.deleted
-    #   render json: { deleted_company: [],
-    #                  deleted_already: not_modified,
-    #   }
-    # else
-    #   @company.delete_company
-    #   render json: { deleted_company: @company,
-    #                  code: 200,
-    #                  status: :success,
-    #   }, except: [:created_at, :updated_at]
-    # end
+    if @company.deleted
+      render json: { deleted_company: [],
+                     deleted_already: not_modified,
+      }
+    else
+      logger.info "In else: #{@company}"
+
+      @company.delete_company
+      render json: { deleted_company: @company,
+                     code: 200,
+                     status: :success,
+      }, except: [:created_at, :updated_at]
+    end
   end
 
   def update

@@ -7,7 +7,11 @@ Rails.application.routes.draw do
       resources :jobs
       resources :companies do
         resources :jobs
+        match 'mark_destroy', to: 'companies#mark_destroy', via: :post
+
       end
+
+      match 'mark_destroy/:id', to: 'companies#mark_destroy', via: :post
 
     end
   end
