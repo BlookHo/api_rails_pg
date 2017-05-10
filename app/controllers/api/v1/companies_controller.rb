@@ -32,7 +32,7 @@ class Api::V1::CompaniesController < ApplicationController
     if @company.deleted
       puts "deleted: "
       render json: { deleted_company: [],
-                     deleted_already: not_modified,
+                     deleted_already: :not_modified,
       }
     else
       @company.delete_company
