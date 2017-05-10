@@ -6,8 +6,10 @@ Rails.application.routes.draw do
 
       resources :jobs
       resources :companies do
+        match 'mark_deleted', to: '/v1/companies/mark_deleted', via: :post
         resources :jobs
       end
+      match 'mark_deleted', to: '/v1/companies/mark_deleted', via: :post
 
     end
   end
