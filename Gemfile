@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 #   "https://github.com/#{repo_name}.git"
 # end
 
-# gem 'wdm', '>= 0.1.0'
+gem 'wdm', '>= 0.1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
 # Use postgresql as the database for Active Record
@@ -38,35 +38,35 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution
-  gem 'byebug', platform: :mri
-
-  gem 'better_errors'
-  gem 'binding_of_caller'
-
-  gem 'guard'
-  gem 'guard-bundler', require: false
-  gem 'guard-rspec', require: false
-
-  gem 'rspec-rails', '~> 3.5' # , :github => 'rspec/rspec-rails'
-  gem 'rails-controller-testing'
-
-  # Checks ruby code grammar
-  gem 'rubocop', require: false
-  # With rspec
-  gem 'rubocop-rspec'
-  # With guard
-  gem 'guard-rubocop'
-end
-
-group :test do
-  gem 'factory_girl_rails'
-  gem 'faker'
-  gem 'database_cleaner'
-  # gem 'simplecov', :require => false
-end
-
-group :coverage do
-  gem 'simplecov', :require => false
-end
+# group :development, :test do
+#   # Call 'byebug' anywhere in the code to stop execution
+#   gem 'byebug', platform: :mri
+#
+#   gem 'better_errors'
+#   gem 'binding_of_caller'
+#
+#   gem 'guard'
+#   gem 'guard-bundler', require: false
+#   gem 'guard-rspec', require: false
+#
+#   gem 'rspec-rails', '~> 3.5' # , :github => 'rspec/rspec-rails'
+#   gem 'rails-controller-testing'
+#
+#   # Checks ruby code grammar
+#   gem 'rubocop', require: false
+#   # With rspec
+#   gem 'rubocop-rspec'
+#   # With guard
+#   gem 'guard-rubocop'
+# end
+#
+# group :test do
+#   gem 'factory_girl_rails'
+#   gem 'faker'
+#   gem 'database_cleaner'
+#   # gem 'simplecov', :require => false
+# end
+#
+# group :coverage do
+#   gem 'simplecov', :require => false
+# end
