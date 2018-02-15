@@ -15,35 +15,35 @@ ActiveRecord::Schema.define(version: 20170510153015) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "applies", force: :cascade do |t|
-    t.integer  "job_id",                     null: false
-    t.integer  "geek_id",                    null: false
-    t.boolean  "read",       default: false
-    t.boolean  "invited",    default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
-
-  create_table "companies", force: :cascade do |t|
-    t.string   "name",                       null: false
-    t.string   "location",                   null: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.boolean  "deleted",    default: false
-  end
-
-  create_table "geeks", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "stack",      null: false
-    t.text     "resume"
+  create_table "applies", id: :serial, force: :cascade do |t|
+    t.integer "job_id", null: false
+    t.integer "geek_id", null: false
+    t.boolean "read", default: false
+    t.boolean "invited", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "jobs", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "place",      null: false
-    t.integer  "company_id", null: false
+  create_table "companies", id: :serial, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "location", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "deleted", default: false
+  end
+
+  create_table "geeks", id: :serial, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "stack", null: false
+    t.text "resume"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "jobs", id: :serial, force: :cascade do |t|
+    t.string "name", null: false
+    t.string "place", null: false
+    t.integer "company_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -25,19 +25,20 @@ class Api::V1::CompaniesController < ApplicationController
     #                code: 200,
     #                status: :success,
     # }, except: [:created_at, :updated_at]
-    @company = Company.find(params[:company_id])
+    # @company = Company.find(params[:company_id])
+    company = Company.find(params[:id])
 
-    puts "deleted: @company = #{@company}"
+    puts "deleted: @company = #{company}"
 
-    if @company.deleted
+    if company.deleted
       puts "deleted: "
       render json: { deleted_company: [],
                      deleted_already: :not_modified,
       }
     else
-      @company.delete_company
+      company.delete_company
       puts "NOT deleted: "
-      render json: { deleted_company: @company,
+      render json: { deleted_company: company,
                      code: 200,
                      status: :success,
       }, except: [:created_at, :updated_at]

@@ -20,6 +20,3 @@
 /config/secrets.yml
 
 .idea/*
-
-config/secrets.yml
-
